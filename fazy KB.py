@@ -1,7 +1,8 @@
 from time import sleep
 import sys
 import math
-
+import os
+clear=lambda:os.system('clear')
 version=0.9
 print("Wersja skryptu: "+str(version))
 if len(sys.argv)<2:
@@ -12,14 +13,16 @@ print("Dokladnosc: "+str(pres)+" miejsc po przecinku")
 #Zdefiniowanie modulu liczby zespolonej
 
 def modul(a):
-   if sys.argv[0] == "fazy KB.py":
-      zero=0
-   else:
-      print("Skrypt By Krzysztof Budzisz")
    return round(math.sqrt(a.real*a.real+a.imag*a.imag),pres)
+#def
+
+
+
+
 
 #zdefiniowanie zasad dla trojkata
 def trojkat():
+   global ztype
    ztype="trojkat"
    print("Czyli trojkat")
 #pobranie zmiennych
@@ -73,6 +76,7 @@ def trojkat():
 
 #zdefiniowanie zasad dla gwiazdy
 def gwiazda():
+   global ztype
    ztype="gwiazda"
    print("Czyli gwiazda")
 #pobranie danych
@@ -99,6 +103,7 @@ def gwiazda():
       U1=U1-Un
       U2=U2-Un
       U3=U3-Un 
+   clear()
    print("Napiecie nierownosci: "+str(complex(round(Un.real,pres),round(Un.imag,pres)))+" V, modul: "+str(modul(Un)))
    I1=complex(round((U1/R1).real,pres),round((U1/R1).imag,pres))
    I2=complex(round((U2/R2).real,pres),round((U2/R2).imag,pres))
@@ -136,6 +141,7 @@ def gwiazda():
 #zdefiniowanie mocy
 
 def moc():
+   global ztype
    ztype="moc"
    print("Liczenie mocy metoda dwoch watomierzy")
    P1=int(input("Podaj moc 1. "))
@@ -154,7 +160,7 @@ def moc():
 #spytanie o wzory
 ask2="Nie"
 if ask2 in ["Nie","nie"]:
-   print("Niestety autor tego skryptu, jest zbyt leniwy, by dodac wyswietlanie zworow,")
+   print("Niestety autor tego skryptu, jest zbyt leniwy, by dodac wyswietlanie wzorow,")
    print("Masz ksiazke i notatki z lekcjii.Powodzenia")
 else:
    print("Milo z twojej strony")
@@ -173,6 +179,8 @@ elif form in ["2","moc","m","w","p"]:
    moc()
 else:
   gwiazda()
+needed=raw_input("Podaj co chcesz obliczyc, po przecinkach, symbole: ")
+toCalc=needed.split(",")
 
 
-# Skrypt by Krzysztof Budzisz 14.05.2020
+# Skrypt by Krzysztof Budzisz 20.05.2020
