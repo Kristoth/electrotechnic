@@ -14,16 +14,9 @@ print("Dokladnosc: "+str(pres)+" miejsc po przecinku")
 
 def modul(a):
    return round(math.sqrt(a.real*a.real+a.imag*a.imag),pres)
-#def
-
-
-
-
 
 #zdefiniowanie zasad dla trojkata
 def trojkat():
-   global ztype
-   ztype="trojkat"
    print("Czyli trojkat")
 #pobranie zmiennych
    U1=input("Napiecie miedzyfazowe:")
@@ -71,13 +64,10 @@ def trojkat():
       print("Suma mocy pozornych: "+str(S1+S2+S3)+" AV")
       print("Suma mocy czynnych: "+str((S1+S2+S3).real)+" W")
       print("Suma mocy biernych: "+str((S1+S2+S3).imag)+" var")
-   
 
 
 #zdefiniowanie zasad dla gwiazdy
 def gwiazda():
-   global ztype
-   ztype="gwiazda"
    print("Czyli gwiazda")
 #pobranie danych
    form=raw_input("Napiecie fazowe(0) czy miedzyfazowe?(1)")
@@ -141,8 +131,6 @@ def gwiazda():
 #zdefiniowanie mocy
 
 def moc():
-   global ztype
-   ztype="moc"
    print("Liczenie mocy metoda dwoch watomierzy")
    P1=int(input("Podaj moc 1. "))
    P2=int(input("Podaj moc 2. "))
@@ -157,15 +145,6 @@ def moc():
    print("Wspolczynnik mocy: "+str(rat))
    print("Kat: "+str(round(deg/math.pi*180, pres))+ " stopni")
 
-#spytanie o wzory
-ask2="Nie"
-if ask2 in ["Nie","nie"]:
-   print("Niestety autor tego skryptu, jest zbyt leniwy, by dodac wyswietlanie wzorow,")
-   print("Masz ksiazke i notatki z lekcjii.Powodzenia")
-else:
-   print("Milo z twojej strony")
-
-
 
 #spytanie o uklad
 if len(sys.argv)<3:
@@ -179,8 +158,7 @@ elif form in ["2","moc","m","w","p"]:
    moc()
 else:
   gwiazda()
-needed=raw_input("Podaj co chcesz obliczyc, po przecinkach, symbole: ")
-toCalc=needed.split(",")
+
 
 
 # Skrypt by Krzysztof Budzisz 20.05.2020
