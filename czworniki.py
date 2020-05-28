@@ -21,6 +21,13 @@ def modul(a):
 def coro(z):
    global pres
    return complex(round(z.real,pres+5),round(z.imag,pres+5))
+def cort(z):
+   global pres
+   if z.real<0:
+      return complex(0,round(math.sqrt(z.imag),pres+5)+round(math.sqrt(-1*z.real),pres+5))   
+   else:
+      return complex(round(math.sqrt(z.real),pres+5),round(math.sqrt(z.imag),pres+5))
+
 
 type=None
 if len(sys.argv)<3:
@@ -76,10 +83,10 @@ if "z3" in dat:
 
 ask=raw_input("Rowania lancuchowe? ")
 ask=ask.lower()
-if ask in ["tak","true","yes","1"]:
-   rowlan=True
-else:
-   rowlan=False
+#if ask in ["tak","true","yes","1"]:
+rowlan=True
+#else:
+ #  rowlan=False
 
 
 #ask=raw_input("Podaj Szukane (po średnikach) ")
@@ -99,7 +106,6 @@ if "d" in lok and type=="T":
   d=coro(1+z2/z3)
   print("D=1+ Z2 / Z3= 1+ "+str(z2)+" / "+str(z3)+" = "+str(d))
 
-
 if "a" in lok and type=="TT":
   a=1+coro(1/z2*z3)
   print("A=1+ Y3*Z2  = 1 +1 /"+str(z2)+" / "+str(z3)+" = "+str(a))
@@ -112,15 +118,20 @@ if "c" in lok and type=="TT":
 if "d" in lok and type=="TT":
   d=coro(1+z3/z1)
   print("D=1+ Z3 / Z1= 1+ "+str(z3)+" / "+str(z1)+" = "+str(d))
-e=coro(1/z1+z3)
-print("\n\nE=1/ Z1 + Z3= 1/ "+str(z1)+" + "+str(z3)+" = "+str(e))
 
-
+zc=cort(b/c)
+print("Impedancja falowa: Zc= (B/C)^1/2= "+str(zc))
+k=a+cort(b*c)
+km=modul(k)
+fi=math.atan(k.imag/k.real)/math.pi*180
+print("Przekładnia: K= A+ √(B*C)= "+str(k)+" modul: "+str(km))
+print("Kat: "+str(round(fi,pres)))
+print("Wspolczynik przenoszenia (a): "+str(1-km))
+print("Wspolczynik fazowy (b): "+str(round(fi,pres))+" stopni")
+print("Wspolczynik przenoszenia (g): "+str(round(fi,pres))+"j stopni")
 
 if rowlan==True:
    print("Rownania lancuchowe: ")
    print("U1 = "+str(a)+"* U2 + "+str(b)+"* I2")
    print("I1 = "+str(c)+"* U2 + "+str(d)+"* I2")
-
-#Made by Krzysztof Budzisz
-
+#made by Krzysztof Budzisz
