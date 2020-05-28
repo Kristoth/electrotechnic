@@ -122,5 +122,5 @@ if rowlan==True:
    print("U1 = "+str(a)+"* U2 + "+str(b)+"* I2")
    print("I1 = "+str(c)+"* U2 + "+str(d)+"* I2")
 
-
+#Made by Krzysztof Budzisz
 
