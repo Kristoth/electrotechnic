@@ -1,10 +1,9 @@
-from time import sleep
 import sys
 import math
 version=0.9
 print("Wersja skryptu: "+str(version))
 if len(sys.argv)<2:
-   pres=input("Ilosc miejsc po przecinku: ")
+   pres=int(input("Ilosc miejsc po przecinku: "))
 else:
    pres=int(sys.argv[1])
 print("Dokladnosc: "+str(pres)+" miejsc po przecinku")
@@ -17,12 +16,12 @@ def modul(a):
 def trojkat():
    print("Czyli trojkat")
 #pobranie zmiennych
-   U1=input("Napiecie miedzyfazowe:")
+   U1=complex(input("Napiecie miedzyfazowe:"))
    U2=complex(round(U1*math.cos(-2.09),pres),round(U1*math.sin(-2.09),pres))
    U3=complex(round(U1*math.cos(2.09),pres),round(U1*math.sin(2.09),pres))
-   R1=input("Opor 1.")
-   R2=input("Opor 2.")
-   R3=input("Opor 3.")
+   R1=complex(input("Opor 1."))
+   R2=complex(input("Opor 2."))
+   R3=complex(input("Opor 3."))
 #oblicznie pradow
    I1=complex(round((U1/R1).real,pres),round((U1/R1).imag,pres))
    I2=complex(round((U2/R2).real,pres),round((U2/R2).imag,pres))
@@ -68,17 +67,17 @@ def trojkat():
 def gwiazda():
    print("Czyli gwiazda")
 #pobranie danych
-   form=raw_input("Napiecie fazowe(0) czy miedzyfazowe?(1)")
-   if form in ["0","f","F"]:
-      U1=input("Napiecie Fazowe:")
+   form=int(input("Napiecie fazowe(0) czy miedzyfazowe?(1)"))
+   if form ==0:
+      U1=int(input("Napiecie Fazowe:"))
    else:
-      U1=round(input("Napiecie Miedzyfazowe:")/math.sqrt(3),pres)
+      U1=round(int(input("Napiecie Miedzyfazowe:"))/math.sqrt(3),pres)
    U2=complex(round(U1*math.cos(-2.09),pres),round(U1*math.sin(-2.09),pres))
    U3=complex(round(U1*math.cos(2.09),pres),round(U1*math.sin(2.09),pres))
-   R1=input("Opor 1.")
-   R2=input("Opor 2.")
-   R3=input("Opor 3.")
-   R4=input("Opor na przewodzie neutralym: ")
+   R1=complex(input("Opor 1."))
+   R2=complex(input("Opor 2."))
+   R3=complex(input("Opor 3."))
+   R4=complex(input("Opor na przewodzie neutralym: "))
    Y1=1/R1
    Y2=1/R2
    Y3=1/R3
@@ -145,17 +144,16 @@ def moc():
 
 #spytanie o uklad
 if len(sys.argv)<3:
-   form=input("Trojkat(0), gwiazda(1) czy moc(2)- zd9.28 ? ")
+   form=int(input("Trojkat(0), gwiazda(1) czy moc(2)- zd9.28 ? "))
 else:
    form=str(sys.argv[2])
 
-if form in ["trojkat","Trojkat","0","t","T"]:
+if form == 0:
    trojkat()
-elif form in ["2","moc","m","w","p"]:
+elif form == 2:
    moc()
 else:
   gwiazda()
 
 
-
-# Skrypt by Krzysztof Budzisz 20.05.2020
+# Skrypt by Krzysztof Budzisz
