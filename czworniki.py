@@ -83,11 +83,16 @@ if "z3" in dat:
 
 ask=raw_input("Rowania lancuchowe? ")
 ask=ask.lower()
-#if ask in ["tak","true","yes","1"]:
-rowlan=True
-#else:
- #  rowlan=False
-
+if ask in ["tak","true","yes","1"]:
+   rowlan=True
+else:
+   rowlan=False
+ask=raw_input("Przekladnia itp? ")
+ask=ask.lower()
+if ask in ["tak","true","yes","1"]:
+   przek=True
+else:
+  przek=False
 
 #ask=raw_input("Podaj Szukane (po średnikach) ")
 ask="a;b;c;d"
@@ -118,17 +123,17 @@ if "c" in lok and type=="TT":
 if "d" in lok and type=="TT":
   d=coro(1+z3/z1)
   print("D=1+ Z3 / Z1= 1+ "+str(z3)+" / "+str(z1)+" = "+str(d))
-
-zc=cort(b/c)
-print("Impedancja falowa: Zc= (B/C)^1/2= "+str(zc))
-k=a+cort(b*c)
-km=modul(k)
-fi=math.atan(k.imag/k.real)/math.pi*180
-print("Przekładnia: K= A+ √(B*C)= "+str(k)+" modul: "+str(km))
-print("Kat: "+str(round(fi,pres)))
-print("Wspolczynik przenoszenia (a): "+str(1-km))
-print("Wspolczynik fazowy (b): "+str(round(fi,pres))+" stopni")
-print("Wspolczynik przenoszenia (g): "+str(round(fi,pres))+"j stopni")
+if przek==True:
+   zc=cort(b/c)
+   print("Impedancja falowa: Zc= (B/C)^1/2= "+str(zc))
+   k=a+cort(b*c)
+   km=modul(k)
+   fi=math.atan(k.imag/k.real)/math.pi*180
+   print("Przekładnia: K= A+ √(B*C)= "+str(k)+" modul: "+str(km))
+   print("Kat: "+str(round(fi,pres)))
+   print("Wspolczynik przenoszenia (a): "+str(1-km))
+   print("Wspolczynik fazowy (b): "+str(round(fi,pres))+" stopni")
+   print("Wspolczynik przenoszenia (g): "+str(round(fi,pres))+"j stopni")
 
 if rowlan==True:
    print("Rownania lancuchowe: ")
