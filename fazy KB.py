@@ -11,21 +11,23 @@ print("Dokladnosc: "+str(pres)+" miejsc po przecinku")
 
 def modul(a):
    return round(math.sqrt(a.real*a.real+a.imag*a.imag),pres)
-
+def coro(z):
+   global pres
+   return complex(round(z.real,pres+5),round(z.imag,pres+5))
 #zdefiniowanie zasad dla trojkata
 def trojkat():
    print("Czyli trojkat")
 #pobranie zmiennych
    U1=complex(input("Napiecie miedzyfazowe:"))
-   U2=complex(round(U1*math.cos(-2.09),pres),round(U1*math.sin(-2.09),pres))
-   U3=complex(round(U1*math.cos(2.09),pres),round(U1*math.sin(2.09),pres))
+   U2=coro(U1*math.cos(-2.09))+coro(U1*math.sin(-2.09))
+   U3=coro(U1*math.cos(2.09))+coro(U1*math.sin(2.09))
    R1=complex(input("Opor 1."))
    R2=complex(input("Opor 2."))
    R3=complex(input("Opor 3."))
 #oblicznie pradow
-   I1=complex(round((U1/R1).real,pres),round((U1/R1).imag,pres))
-   I2=complex(round((U2/R2).real,pres),round((U2/R2).imag,pres))
-   I3=complex(round((U3/R3).real,pres),round((U3/R3).imag,pres))
+   I1=coro(U1/R1)
+   I2=coro(U2/R2)
+   I3=coro(U3/R3)
    Ia=I1-I3
    Ib=I2-I1
    Ic=I3-I2
@@ -33,9 +35,10 @@ def trojkat():
    deg2=0-deg1
 
 #obliczenie mocy
-   S1=complex(round((U1*U1/R1).real,pres),round((U1*U1/R1).imag,pres))
-   S2=complex(round((U1*U1/R2).real,pres),round((U1*U1/R2).imag,pres))
-   S3=complex(round((U1*U1/R3).real,pres),round((U1*U1/R3).imag,pres))
+   S1=coro(U1*U1/R1)
+   S2=coro(U2*U2/R2)
+   S3=coro(U3*U3/R3)
+
 
    
   #wydrukowanie wynikow
@@ -72,8 +75,8 @@ def gwiazda():
       U1=int(input("Napiecie Fazowe:"))
    else:
       U1=round(int(input("Napiecie Miedzyfazowe:"))/math.sqrt(3),pres)
-   U2=complex(round(U1*math.cos(-2.09),pres),round(U1*math.sin(-2.09),pres))
-   U3=complex(round(U1*math.cos(2.09),pres),round(U1*math.sin(2.09),pres))
+   U2=coro(U1*math.cos(-2.09))+coro(U1*math.sin(-2.09))
+   U3=coro(U1*math.cos(2.09))+coro(U1*math.sin(2.09))
    R1=complex(input("Opor 1."))
    R2=complex(input("Opor 2."))
    R3=complex(input("Opor 3."))
@@ -91,15 +94,15 @@ def gwiazda():
       U2=U2-Un
       U3=U3-Un 
    print("Napiecie nierownosci: "+str(complex(round(Un.real,pres),round(Un.imag,pres)))+" V, modul: "+str(modul(Un)))
-   I1=complex(round((U1/R1).real,pres),round((U1/R1).imag,pres))
-   I2=complex(round((U2/R2).real,pres),round((U2/R2).imag,pres))
-   I3=complex(round((U3/R3).real,pres),round((U3/R3).imag,pres))
+   I1=coro(U1/R1)
+   I2=coro(U2/R2)
+   I3=coro(U3/R3)
    #deg1=math.atan(I1.real*math.sqrt(3)/I1.imag*math.sqrt(3))
    #deg2=0-deg1
 #obliczenie mocy
-   S1=complex(round((U1*U1/R1).real,pres),round((U1*U1/R1).imag,pres))
-   S2=complex(round((U1*U1/R2).real,pres),round((U1*U1/R2).imag,pres))
-   S3=complex(round((U1*U1/R3).real,pres),round((U1*U1/R3).imag,pres))
+   S1=coro(U1*U1/R1)
+   S2=coro(U2*U2/R2)
+   S3=coro(U3*U3/R3)
   #wydrukowanie wynikow
    if R1==R2==R3:
       if R4==0:
