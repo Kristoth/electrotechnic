@@ -4,7 +4,7 @@ import math
 import sys
 
 if len(sys.argv)<2:
-   pres=input("Ilosc miejsc po przecinku: ")
+   pres=int(input("Ilosc miejsc po przecinku: "))
 else:
    pres=int(sys.argv[1])
 print("Dokladnosc: "+str(pres)+" miejsc po przecinku")
@@ -31,20 +31,20 @@ def cort(z):
 
 type=None
 if len(sys.argv)<3:
-   ask=raw_input("'T'-(0) czy 'TT'-(1) ? ")
+   ask=int(input("'T'-(0) czy 'TT'-(1) ? "))
 else:
    ask=sys.argv[2]
 
 
-if ask in ["0","T","t","te"]:
+if ask ==0
    type="T"
-elif ask in ["1","TT","tt","pi","Pi"]:
+elif ask ==1
    type="TT"
 else:
    print("Nie rozpoznano typu,\nSprobuj ponownie")
    exit()
 
-if type=="t":
+if type=="T":
    print("    ┏━━━━━━━━━┓    ")
    print("I11 ┃ Z1   Z2 ┃ I21")
    print("─>──╂─▭──┬─▭──╂─<──")
@@ -68,28 +68,28 @@ ask="z1;z2;z3"
 ask=ask.lower()
 dat=ask.split(";")
 if "z1" in dat:
-  z1=input("Podaj Z1: ")
+  z1=complex(input("Podaj Z1: "))
   z1=coro(z1)
   y1=coro(1/z1)
 
 if "z2" in dat:
-  z2=input("Podaj Z2: ")
+  z2=complex(input("Podaj Z2: "))
   z2=coro(z2)
   y2=coro(1/z2)
 if "z3" in dat:
-  z3=input("Podaj Z3: ")
+  z3=complex(input("Podaj Z3: "))
   z3=coro(z3)
   y3=coro(1/z3)
 
-ask=raw_input("Rowania lancuchowe? ")
+ask=int(input("Rowania lancuchowe? [1/0]"))
 ask=ask.lower()
-if ask in ["tak","true","yes","1"]:
+if ask == 1
    rowlan=True
 else:
    rowlan=False
-ask=raw_input("Przekladnia itp? ")
+ask=int(input("Przekladnia itp? [1/0]"))
 ask=ask.lower()
-if ask in ["tak","true","yes","1"]:
+if ask ==1
    przek=True
 else:
   przek=False
