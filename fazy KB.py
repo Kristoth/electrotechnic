@@ -1,8 +1,6 @@
 from time import sleep
 import sys
 import math
-import os
-clear=lambda:os.system('clear')
 version=0.9
 print("Wersja skryptu: "+str(version))
 if len(sys.argv)<2:
@@ -93,7 +91,6 @@ def gwiazda():
       U1=U1-Un
       U2=U2-Un
       U3=U3-Un 
-   clear()
    print("Napiecie nierownosci: "+str(complex(round(Un.real,pres),round(Un.imag,pres)))+" V, modul: "+str(modul(Un)))
    I1=complex(round((U1/R1).real,pres),round((U1/R1).imag,pres))
    I2=complex(round((U2/R2).real,pres),round((U2/R2).imag,pres))
@@ -148,7 +145,7 @@ def moc():
 
 #spytanie o uklad
 if len(sys.argv)<3:
-   form=raw_input("Trojkat(0), gwiazda(1) czy moc(2)- zd9.28 ? ")
+   form=input("Trojkat(0), gwiazda(1) czy moc(2)- zd9.28 ? ")
 else:
    form=str(sys.argv[2])
 
