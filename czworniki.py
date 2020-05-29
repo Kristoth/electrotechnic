@@ -36,9 +36,9 @@ else:
    ask=sys.argv[2]
 
 
-if ask ==0
+if ask ==0:
    type="T"
-elif ask ==1
+elif ask ==1:
    type="TT"
 else:
    print("Nie rozpoznano typu,\nSprobuj ponownie")
@@ -82,14 +82,12 @@ if "z3" in dat:
   y3=coro(1/z3)
 
 ask=int(input("Rowania lancuchowe? [1/0]"))
-ask=ask.lower()
-if ask == 1
+if ask == 1:
    rowlan=True
 else:
    rowlan=False
 ask=int(input("Przekladnia itp? [1/0]"))
-ask=ask.lower()
-if ask ==1
+if ask ==1:
    przek=True
 else:
   przek=False
