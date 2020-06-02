@@ -11,10 +11,6 @@ print("Dokladnosc: "+str(pres)+" miejsc po przecinku")
 
 
 def modul(a):
-   if sys.argv[0] == "czworniki.py":
-      zero=0
-   else:
-      print("Skrypt By Krzysztof Budzisz")
    return round(math.sqrt(a.real*a.real+a.imag*a.imag),pres)
 
 
@@ -31,7 +27,7 @@ def cort(z):
 
 type=None
 if len(sys.argv)<3:
-   ask=int(input("'T'-(0) czy 'TT'-(1) ? "))
+   ask=int(input("'T'[0] czy 'TT'[1] ? "))
 else:
    ask=sys.argv[2]
 
